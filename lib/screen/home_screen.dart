@@ -1,5 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_submission/screen/desain_screen.dart';
 import 'package:flutter_submission/screen/notification_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -270,7 +271,12 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DesainScreen()));
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 20),
                       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -388,6 +394,27 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
+
+            Container(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Feedback',
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Lihat Semua >',
+                    style: GoogleFonts.poppins(fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20.0),
               width: MediaQuery.of(context).size.width,
@@ -415,7 +442,42 @@ class _HomePageState extends State<HomePage> {
                   decoration:
                       BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
                 ),
-                title: Text('Irfan'),
+                title: Text('Irfan Maulana'),
+                subtitle: Text(
+                    'Aplikasi ini sangat membantu saya untuk menemukan mentor yang sesuai bidang saya.'),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.0),
+              width: MediaQuery.of(context).size.width,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 15.0,
+                      offset: Offset(4.0, 4.0),
+                      spreadRadius: 1.0),
+                  BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 15.0,
+                      offset: Offset(-4.0, -4.0),
+                      spreadRadius: 1.0)
+                ],
+              ),
+              child: ListTile(
+                leading: Container(
+                  height: 50,
+                  width: 50,
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
+                ),
+                title: Text('Irfan Maulana'),
                 subtitle: Text(
                     'Aplikasi ini sangat membantu saya untuk menemukan mentor yang sesuai bidang saya.'),
               ),
