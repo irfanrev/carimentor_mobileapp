@@ -23,16 +23,17 @@ class _NavbarState extends State<Navbar> {
     return Scaffold(
       body: _layoutPage.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.red,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Colors.red,
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.red,
             icon: Icon(Icons.chat_rounded),
-            title: Text('Diskusi'),
+            label: 'Discussion',
           )
         ],
         currentIndex: _selectedIndex,

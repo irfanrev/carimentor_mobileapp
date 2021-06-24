@@ -1,7 +1,12 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_submission/models/marketing.dart';
+import 'package:flutter_submission/models/programming.dart';
 import 'package:flutter_submission/screen/desain_screen.dart';
+import 'package:flutter_submission/screen/diskusi_screen.dart';
+import 'package:flutter_submission/screen/marketing_screen.dart';
 import 'package:flutter_submission/screen/notification_screen.dart';
+import 'package:flutter_submission/screen/programming_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -212,6 +217,9 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.grey,
+                          image: DecorationImage(
+                              image: AssetImage('assets/desain1.jpeg'),
+                              fit: BoxFit.fill),
                         ),
                       ),
                       title: Text(
@@ -225,16 +233,22 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 14, color: Colors.black),
                       ),
                       trailing: Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Icon(
-                          Icons.chat_rounded,
-                          color: Colors.white,
-                        ),
-                      ),
+                          padding: EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: IconButton(
+                              icon: Icon(
+                                Icons.chat_rounded,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Diskusi()));
+                              })),
                     ),
                   )
                 ],
@@ -301,7 +315,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProgrammingScreen()));
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 10),
                       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -326,7 +345,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MarketingScreen()));
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 10),
                       padding: EdgeInsets.symmetric(horizontal: 20),

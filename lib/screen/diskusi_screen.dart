@@ -10,10 +10,24 @@ class _DiskusiState extends State<Diskusi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Disusi Bersama Mentor'),
+        automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: Text('tes'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.chat_rounded,
+              size: 40,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text('No Dicsussion'),
+          ],
+        ),
       ),
     );
   }

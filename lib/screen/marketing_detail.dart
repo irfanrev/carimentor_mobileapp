@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_submission/models/desain.dart';
-import 'package:flutter_submission/screen/chat_screen.dart';
+import 'package:flutter_submission/models/marketing.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// detail screen
-class DesainDetail extends StatefulWidget {
-  final Desain desain;
+import 'chat_screen.dart';
 
-  DesainDetail({this.desain});
+class MarketingDetail extends StatefulWidget {
+  final Marketing marketing;
 
+  MarketingDetail({this.marketing});
   @override
-  _DesainDetailState createState() => _DesainDetailState();
+  _MarketingDetailState createState() => _MarketingDetailState();
 }
 
-class _DesainDetailState extends State<DesainDetail> {
+class _MarketingDetailState extends State<MarketingDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +54,7 @@ class _DesainDetailState extends State<DesainDetail> {
                             border: Border.all(color: Colors.white, width: 8),
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                                image: AssetImage(widget.desain.imageAssets),
+                                image: AssetImage(widget.marketing.imageAssets),
                                 fit: BoxFit.fill),
                           ),
                         )
@@ -68,12 +67,12 @@ class _DesainDetailState extends State<DesainDetail> {
             Column(
               children: [
                 Text(
-                  widget.desain.name,
+                  widget.marketing.name,
                   style: GoogleFonts.poppins(
                       fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  widget.desain.kategori,
+                  widget.marketing.kategori,
                   style: GoogleFonts.poppins(
                       fontSize: 18, color: Colors.grey[700]),
                 )
@@ -163,7 +162,7 @@ class _DesainDetailState extends State<DesainDetail> {
                     ),
                   ),
                   Text(
-                    widget.desain.bio,
+                    widget.marketing.bio,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
@@ -203,7 +202,7 @@ class _DesainDetailState extends State<DesainDetail> {
                     ),
                   ),
                   Text(
-                    widget.desain.skill,
+                    widget.marketing.skill,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
@@ -249,7 +248,7 @@ class _DesainDetailState extends State<DesainDetail> {
                         padding: EdgeInsets.only(left: 20),
                       ),
                       Text(
-                        widget.desain.wa,
+                        widget.marketing.wa,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.black,
@@ -264,7 +263,7 @@ class _DesainDetailState extends State<DesainDetail> {
                         padding: EdgeInsets.only(left: 20),
                       ),
                       Text(
-                        widget.desain.email,
+                        widget.marketing.email,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.black,
@@ -279,7 +278,7 @@ class _DesainDetailState extends State<DesainDetail> {
                         padding: EdgeInsets.only(left: 20),
                       ),
                       Text(
-                        widget.desain.linkedIn,
+                        widget.marketing.linkedIn,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.black,

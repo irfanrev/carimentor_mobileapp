@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_submission/models/desain.dart';
+import 'package:flutter_submission/screen/chat_screen.dart';
+import 'package:flutter_submission/screen/diskusi_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'desain_detail_screen.dart';
@@ -57,6 +59,18 @@ class DesainScreen extends StatelessWidget {
                       style: GoogleFonts.poppins(fontSize: 18),
                     ),
                     subtitle: Text(desain.kategori),
+                    trailing: IconButton(
+                      icon: Icon(
+                        Icons.chat_rounded,
+                        color: Colors.red,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChatScreen()));
+                      },
+                    ),
                   ),
                 ),
               );

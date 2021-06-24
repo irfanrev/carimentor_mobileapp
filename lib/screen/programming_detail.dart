@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_submission/models/desain.dart';
-import 'package:flutter_submission/screen/chat_screen.dart';
+import 'package:flutter_submission/models/programming.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// detail screen
-class DesainDetail extends StatefulWidget {
-  final Desain desain;
+import 'chat_screen.dart';
 
-  DesainDetail({this.desain});
+class ProgrammingDetail extends StatefulWidget {
+  final Programming programming;
+
+  ProgrammingDetail({this.programming});
 
   @override
-  _DesainDetailState createState() => _DesainDetailState();
+  _ProgrammingDetailState createState() => _ProgrammingDetailState();
 }
 
-class _DesainDetailState extends State<DesainDetail> {
+class _ProgrammingDetailState extends State<ProgrammingDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +55,8 @@ class _DesainDetailState extends State<DesainDetail> {
                             border: Border.all(color: Colors.white, width: 8),
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                                image: AssetImage(widget.desain.imageAssets),
+                                image:
+                                    AssetImage(widget.programming.imageAssets),
                                 fit: BoxFit.fill),
                           ),
                         )
@@ -68,12 +69,12 @@ class _DesainDetailState extends State<DesainDetail> {
             Column(
               children: [
                 Text(
-                  widget.desain.name,
+                  widget.programming.name,
                   style: GoogleFonts.poppins(
                       fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  widget.desain.kategori,
+                  widget.programming.kategori,
                   style: GoogleFonts.poppins(
                       fontSize: 18, color: Colors.grey[700]),
                 )
@@ -163,7 +164,7 @@ class _DesainDetailState extends State<DesainDetail> {
                     ),
                   ),
                   Text(
-                    widget.desain.bio,
+                    widget.programming.bio,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
@@ -203,7 +204,7 @@ class _DesainDetailState extends State<DesainDetail> {
                     ),
                   ),
                   Text(
-                    widget.desain.skill,
+                    widget.programming.skill,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
@@ -249,7 +250,7 @@ class _DesainDetailState extends State<DesainDetail> {
                         padding: EdgeInsets.only(left: 20),
                       ),
                       Text(
-                        widget.desain.wa,
+                        widget.programming.wa,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.black,
@@ -264,7 +265,7 @@ class _DesainDetailState extends State<DesainDetail> {
                         padding: EdgeInsets.only(left: 20),
                       ),
                       Text(
-                        widget.desain.email,
+                        widget.programming.email,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.black,
@@ -279,7 +280,7 @@ class _DesainDetailState extends State<DesainDetail> {
                         padding: EdgeInsets.only(left: 20),
                       ),
                       Text(
-                        widget.desain.linkedIn,
+                        widget.programming.linkedIn,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.black,
