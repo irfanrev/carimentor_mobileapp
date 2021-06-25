@@ -8,6 +8,8 @@ import 'package:flutter_submission/screen/editor_screen.dart';
 import 'package:flutter_submission/screen/marketing_screen.dart';
 import 'package:flutter_submission/screen/notification_screen.dart';
 import 'package:flutter_submission/screen/programming_screen.dart';
+import 'package:flutter_submission/screen/semuakategori_screen.dart';
+import 'package:flutter_submission/screen/topmentor_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -219,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.circle,
                           color: Colors.grey,
                           image: DecorationImage(
-                              image: AssetImage('assets/desain1.jpeg'),
+                              image: AssetImage('assets/desain4.jpeg'),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -268,9 +270,17 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.poppins(
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    'Lihat Semua >',
-                    style: GoogleFonts.poppins(fontSize: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllCategory()));
+                    },
+                    child: Text(
+                      'Lihat Semua >',
+                      style: GoogleFonts.poppins(fontSize: 16),
+                    ),
                   ),
                 ],
               ),
@@ -406,7 +416,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllCategory()));
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 10),
                       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -431,13 +446,17 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Feedback',
+                    'Mentor Terbaik',
                     style: GoogleFonts.poppins(
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    'Lihat Semua >',
-                    style: GoogleFonts.poppins(fontSize: 16),
+                  InkWell(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AllCategory())),
+                    child: Text(
+                      'Lihat Semua >',
+                      style: GoogleFonts.poppins(fontSize: 16),
+                    ),
                   ),
                 ],
               ),
@@ -446,149 +465,15 @@ class _HomePageState extends State<HomePage> {
               height: 10,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 15.0,
-                      offset: Offset(4.0, 4.0),
-                      spreadRadius: 1.0),
-                  BoxShadow(
-                      color: Colors.white,
-                      blurRadius: 15.0,
-                      offset: Offset(-4.0, -4.0),
-                      spreadRadius: 1.0)
-                ],
-              ),
-              child: ListTile(
-                leading: Container(
-                  height: 50,
-                  width: 50,
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-                ),
-                title: Text('Irfan Maulana'),
-                subtitle: Text(
-                    'Aplikasi ini sangat membantu saya untuk menemukan mentor yang sesuai bidang saya.'),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 15.0,
-                      offset: Offset(4.0, 4.0),
-                      spreadRadius: 1.0),
-                  BoxShadow(
-                      color: Colors.white,
-                      blurRadius: 15.0,
-                      offset: Offset(-4.0, -4.0),
-                      spreadRadius: 1.0)
-                ],
-              ),
-              child: ListTile(
-                leading: Container(
-                  height: 50,
-                  width: 50,
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-                ),
-                title: Text('Irfan Maulana'),
-                subtitle: Text(
-                    'Aplikasi ini sangat membantu saya untuk menemukan mentor yang sesuai bidang saya.'),
-              ),
-            ),
+                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                width: MediaQuery.of(context).size.width,
+                height: 350,
+                child: TopMentorScreen()),
+
             SizedBox(
               height: 30,
             ),
             //menu terakhir
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              padding: EdgeInsets.all(10.0),
-              width: MediaQuery.of(context).size.width,
-              //color: Colors.red,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15.0),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 15.0,
-                                  offset: Offset(4.0, 4.0),
-                                  spreadRadius: 1.0),
-                              BoxShadow(
-                                  color: Colors.white,
-                                  blurRadius: 15.0,
-                                  offset: Offset(-4.0, -4.0),
-                                  spreadRadius: 1.0)
-                            ]),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.video_label, size: 60),
-                            Text(
-                              'Room',
-                              style: GoogleFonts.poppins(),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 100,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15.0),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 15.0,
-                                  offset: Offset(4.0, 4.0),
-                                  spreadRadius: 1.0),
-                              BoxShadow(
-                                  color: Colors.white,
-                                  blurRadius: 15.0,
-                                  offset: Offset(-4.0, -4.0),
-                                  spreadRadius: 1.0)
-                            ]),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.video_label, size: 60),
-                            Text(
-                              'Room',
-                              style: GoogleFonts.poppins(),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
           ],
         ),
       ),

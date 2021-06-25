@@ -10,7 +10,19 @@ class NotifScreen extends StatelessWidget {
         title: Text('Notification'),
       ),
       body: Center(
-        child: Text('notif'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.chat_rounded,
+              size: 40,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text('No Dicsussion'),
+          ],
+        ),
       ),
     );
   }
