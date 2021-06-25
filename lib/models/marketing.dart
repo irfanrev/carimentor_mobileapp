@@ -41,7 +41,7 @@ var marketingList = [
       wa: '083344562223',
       email: 'dre@gmail.com',
       linkedIn: 'andree',
-      imageAssets: 'assets/02.jpege'),
+      imageAssets: 'assets/02.jpeg'),
   Marketing(
       name: 'Putri',
       kategori: 'Marketing',

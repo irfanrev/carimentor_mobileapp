@@ -26,7 +26,7 @@ class Starter extends StatelessWidget {
               height: 25,
             ),
             Text(
-              'Aplikasi Mentorku akan membantu kamu untuk mencari mentor terbaik sesuai dengan fashion yang kamu mau.',
+              'Aplikasi Carimentor akan membantu kamu untuk mencari mentor terbaik sesuai dengan fashion yang kamu mau.',
               style: GoogleFonts.poppins(color: Colors.white),
               textAlign: TextAlign.center,
             ),

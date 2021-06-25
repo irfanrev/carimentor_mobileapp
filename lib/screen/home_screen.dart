@@ -4,6 +4,7 @@ import 'package:flutter_submission/models/marketing.dart';
 import 'package:flutter_submission/models/programming.dart';
 import 'package:flutter_submission/screen/desain_screen.dart';
 import 'package:flutter_submission/screen/diskusi_screen.dart';
+import 'package:flutter_submission/screen/editor_screen.dart';
 import 'package:flutter_submission/screen/marketing_screen.dart';
 import 'package:flutter_submission/screen/notification_screen.dart';
 import 'package:flutter_submission/screen/programming_screen.dart';
@@ -375,7 +376,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditorScreen()));
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 10),
                       padding: EdgeInsets.symmetric(horizontal: 20),
