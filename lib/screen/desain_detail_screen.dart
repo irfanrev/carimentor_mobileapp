@@ -18,7 +18,7 @@ class _DesainDetailState extends State<DesainDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.indigo,
           title: Text('Profile'),
         ),
         body: ListView(

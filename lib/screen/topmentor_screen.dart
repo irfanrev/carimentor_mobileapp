@@ -51,7 +51,7 @@ class TopMentorScreen extends StatelessWidget {
                 trailing: IconButton(
                   icon: Icon(
                     Icons.chat_rounded,
-                    color: Colors.red,
+                    color: Colors.indigo,
                   ),
                   onPressed: () {
                     Navigator.push(context,

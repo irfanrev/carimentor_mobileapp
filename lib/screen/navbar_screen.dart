@@ -23,7 +23,7 @@ class _NavbarState extends State<Navbar> {
     return Scaffold(
       body: _layoutPage.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.red,
+        selectedItemColor: Colors.indigo,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Colors.red,

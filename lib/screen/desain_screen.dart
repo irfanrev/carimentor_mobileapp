@@ -11,7 +11,7 @@ class DesainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.indigo,
           title: Text('Desain'),
         ),
         body: Padding(
@@ -62,7 +62,7 @@ class DesainScreen extends StatelessWidget {
                     trailing: IconButton(
                       icon: Icon(
                         Icons.chat_rounded,
-                        color: Colors.red,
+                        color: Colors.indigo,
                       ),
                       onPressed: () {
                         Navigator.push(

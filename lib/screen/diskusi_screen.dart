@@ -10,7 +10,7 @@ class _DiskusiState extends State<Diskusi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.indigo,
         title: Text('Disusi Bersama Mentor'),
         automaticallyImplyLeading: false,
       ),

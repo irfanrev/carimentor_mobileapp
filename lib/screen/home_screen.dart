@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle, color: Colors.white),
                           child: Icon(Icons.notifications_none_outlined,
-                              color: Colors.red, size: 30.0),
+                              color: Colors.indigo, size: 30.0),
                         ),
                       ),
                       Padding(padding: EdgeInsets.only(left: 10.0)),
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                     height: 180,
                     width: 180,
                     decoration: BoxDecoration(
-                        color: Colors.deepOrange, shape: BoxShape.circle),
+                        color: Colors.indigo[400], shape: BoxShape.circle),
                   ),
                 ),
                 Positioned(
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     height: 80,
                     width: 80,
                     decoration: BoxDecoration(
-                        color: Colors.red, shape: BoxShape.circle),
+                        color: Colors.indigo[700], shape: BoxShape.circle),
                   ),
                 ),
                 Container(
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                               height: 60,
                               width: 60,
                               decoration: BoxDecoration(
-                                color: Colors.red,
+                                color: Colors.indigo,
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Icon(
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.red,
+                color: Colors.indigo,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                       trailing: Container(
                           padding: EdgeInsets.all(2),
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            color: Colors.indigo,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: IconButton(
@@ -308,19 +308,21 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Colors.red,
-                        gradient: LinearGradient(
-                            colors: [Colors.red[600], Colors.orange],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight),
+                        //color: Colors.indigo,
+                        border: Border.all(width: 3, color: Colors.indigo),
+                        // gradient: LinearGradient(
+                        //     colors: [Colors.indigo[600], Colors.indigo],
+                        //     begin: Alignment.centerLeft,
+                        //     end: Alignment.centerRight),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.design_services, size: 35),
+                          Icon(Icons.design_services,
+                              size: 35, color: Colors.indigo),
                           Padding(padding: EdgeInsets.only(left: 8)),
                           Text('Desain',
                               style: GoogleFonts.poppins(
-                                  color: Colors.white, fontSize: 18)),
+                                  color: Colors.indigo, fontSize: 18)),
                         ],
                       ),
                     ),
@@ -338,19 +340,19 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Colors.red,
-                        gradient: LinearGradient(
-                            colors: [Colors.red[600], Colors.orange],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight),
+                        border: Border.all(width: 3, color: Colors.indigo),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.computer_rounded, size: 35),
+                          Icon(
+                            Icons.computer_rounded,
+                            size: 35,
+                            color: Colors.indigo,
+                          ),
                           Padding(padding: EdgeInsets.only(left: 8)),
                           Text('Programming',
                               style: GoogleFonts.poppins(
-                                  color: Colors.white, fontSize: 18)),
+                                  color: Colors.indigo, fontSize: 18)),
                         ],
                       ),
                     ),
@@ -368,19 +370,19 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Colors.red,
-                        gradient: LinearGradient(
-                            colors: [Colors.red[600], Colors.orange],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight),
+                        border: Border.all(width: 3, color: Colors.indigo),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.money, size: 35),
+                          Icon(
+                            Icons.money,
+                            size: 35,
+                            color: Colors.indigo,
+                          ),
                           Padding(padding: EdgeInsets.only(left: 8)),
                           Text('Marketing',
                               style: GoogleFonts.poppins(
-                                  color: Colors.white, fontSize: 18)),
+                                  color: Colors.indigo, fontSize: 18)),
                         ],
                       ),
                     ),
@@ -398,19 +400,19 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Colors.red,
-                        gradient: LinearGradient(
-                            colors: [Colors.red[600], Colors.orange],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight),
+                        border: Border.all(width: 3, color: Colors.indigo),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.movie_creation_rounded, size: 35),
+                          Icon(
+                            Icons.movie_creation_rounded,
+                            size: 35,
+                            color: Colors.indigo,
+                          ),
                           Padding(padding: EdgeInsets.only(left: 8)),
                           Text('Editor',
                               style: GoogleFonts.poppins(
-                                  color: Colors.white, fontSize: 18)),
+                                  color: Colors.indigo, fontSize: 18)),
                         ],
                       ),
                     ),
@@ -428,7 +430,7 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: Colors.red),
+                          color: Colors.indigo),
                       child: Icon(Icons.arrow_forward_ios_rounded,
                           color: Colors.white),
                     ),
