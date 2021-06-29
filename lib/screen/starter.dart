@@ -1,64 +1,84 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_submission/screen/login_screen.dart';
+import 'package:flutter_submission/widgets/button_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 
-class Starter extends StatelessWidget {
+class OnBoardingPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.all(20),
-        color: Colors.red,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Ayo Cari Mentor Terbaikmu!',
-              style: GoogleFonts.poppins(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-              textAlign: TextAlign.center,
+  Widget build(BuildContext context) => SafeArea(
+        child: IntroductionScreen(
+          pages: [
+            PageViewModel(
+              title: 'A reader lives a thousand lives',
+              body: 'The man who never reads lives only one.',
+              image: buildImage('assets/on1.png'),
+              decoration: getPageDecoration(),
             ),
-            SizedBox(
-              height: 25,
+            PageViewModel(
+              title: 'Featured Books',
+              body: 'Available right at your fingerprints',
+              image: buildImage('assets/on2.png'),
+              decoration: getPageDecoration(),
             ),
-            Text(
-              'Aplikasi Carimentor akan membantu kamu untuk mencari mentor terbaik sesuai dengan fashion yang kamu mau.',
-              style: GoogleFonts.poppins(color: Colors.white),
-              textAlign: TextAlign.center,
+            PageViewModel(
+              title: 'Simple UI',
+              body: 'For enhanced reading experience',
+              image: buildImage('assets/on3.png'),
+              decoration: getPageDecoration(),
             ),
-            Container(
-              height: 200,
-              child: Image.asset('assets/mentor.png'),
-            ),
-            SizedBox(
-              height: 35,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
-              },
-              child: Container(
-                padding: EdgeInsets.all(20.0),
-                width: 250,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  'Get Started',
-                  style: GoogleFonts.poppins(fontSize: 20, color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
+            PageViewModel(
+              title: 'Today a reader, tomorrow a leader',
+              body: 'Start your journey',
+              footer: ButtonWidget(
+                text: 'Start Reading',
+                onClicked: () => goToHome(context),
               ),
-            )
+              image: buildImage('assets/on4.png'),
+              decoration: getPageDecoration(),
+            ),
           ],
+          done: Text('Read', style: TextStyle(fontWeight: FontWeight.w600)),
+          onDone: () => goToHome(context),
+          showSkipButton: true,
+          skip: Text('Skip'),
+          onSkip: () => goToHome(context),
+          next: Icon(Icons.arrow_forward),
+          dotsDecorator: getDotDecoration(),
+          onChange: (index) => print('Page $index selected'),
+          globalBackgroundColor: Theme.of(context).primaryColor,
+          skipFlex: 0,
+          nextFlex: 0,
+          // isProgressTap: false,
+          // isProgress: false,
+          // showNextButton: false,
+          // freeze: true,
+          // animationDuration: 1000,
         ),
-      ),
-    );
-  }
+      );
+
+  void goToHome(context) => Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => LoginScreen()),
+      );
+
+  Widget buildImage(String path) =>
+      Center(child: Image.asset(path, width: 350));
+
+  DotsDecorator getDotDecoration() => DotsDecorator(
+        color: Color(0xFFBDBDBD),
+        //activeColor: Colors.orange,
+        size: Size(10, 10),
+        activeSize: Size(22, 10),
+        activeShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
+      );
+
+  PageDecoration getPageDecoration() => PageDecoration(
+        titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        bodyTextStyle: TextStyle(fontSize: 20),
+        descriptionPadding: EdgeInsets.all(16).copyWith(bottom: 0),
+        imagePadding: EdgeInsets.all(24),
+        pageColor: Colors.white,
+      );
 }

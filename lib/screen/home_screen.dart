@@ -2,6 +2,8 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_submission/models/marketing.dart';
 import 'package:flutter_submission/models/programming.dart';
+import 'package:flutter_submission/models/semuakategori.dart';
+import 'package:flutter_submission/models/topmentor.dart';
 import 'package:flutter_submission/screen/desain_screen.dart';
 import 'package:flutter_submission/screen/diskusi_screen.dart';
 import 'package:flutter_submission/screen/editor_screen.dart';
@@ -25,6 +27,8 @@ class _HomePageState extends State<HomePage> {
     'assets/4.jpeg',
   ];
 
+  TextEditingController cariController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,46 +37,53 @@ class _HomePageState extends State<HomePage> {
           preferredSize: Size.fromHeight(80),
           child: Stack(
             children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                ),
+                padding: EdgeInsets.only(top: 28.0),
+                child: Center(
+                    child: Text('Mentor',
+                        style: GoogleFonts.poppins(
+                            fontSize: 22.0, color: Colors.white))),
+              ),
               Positioned(
-                  top: 50.0,
+                  top: 40.0,
                   left: 20.0,
                   child: Row(
                     children: [
                       InkWell(
                         onTap: () {},
                         child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.red),
-                            child: Image.asset('assets/avatar.png')),
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.red),
+                          child: Image.asset('assets/avatar.png'),
+                        ),
                       ),
                       Padding(padding: EdgeInsets.only(left: 20.0)),
                     ],
                   )),
               Positioned(
-                  top: 50.0,
-                  right: 20.0,
-                  child: Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => NotifScreen()));
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.white),
-                          child: Icon(Icons.notifications_none_outlined,
-                              color: Colors.indigo, size: 30.0),
-                        ),
+                top: 50.0,
+                right: 20.0,
+                child: Row(
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.white),
+                        child: Icon(Icons.notifications_none_outlined,
+                            color: Colors.red, size: 30.0),
                       ),
-                      Padding(padding: EdgeInsets.only(left: 10.0)),
-                    ],
-                  ))
+                    ),
+                    Padding(padding: EdgeInsets.only(left: 10.0)),
+                  ],
+                ),
+              )
             ],
           )),
       body: Container(
@@ -80,109 +91,107 @@ class _HomePageState extends State<HomePage> {
         height: MediaQuery.of(context).size.height,
         child: ListView(
           children: [
-            Stack(
-              children: [
-                Positioned(
-                  left: 15,
-                  top: 10,
-                  child: Container(
-                    height: 180,
-                    width: 180,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              //color: Colors.grey,
+              child: Stack(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 130,
                     decoration: BoxDecoration(
-                        color: Colors.indigo[400], shape: BoxShape.circle),
-                  ),
-                ),
-                Positioned(
-                  left: 150,
-                  child: Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                        color: Colors.indigo[700], shape: BoxShape.circle),
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
+                      color: Colors.indigo,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(22),
+                        bottomRight: Radius.circular(22),
                       ),
-                      Container(
-                        padding: EdgeInsets.only(left: 20, right: 20),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Hello Irfan,',
-                              style: GoogleFonts.poppins(fontSize: 16),
-                            ),
-                            Text(
-                              'Ayo segera cari mentor yang terbaik di bidangmu!',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 20, right: 20),
-                        width: MediaQuery.of(context).size.width,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 3.0,
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                padding: EdgeInsets.only(left: 10),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8),
+                            Row(
+                              children: [
+                                Text(
+                                  'Hi,',
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 18, color: Colors.white),
                                 ),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Cari mentormu!',
-                                    icon: Icon(Icons.search),
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide(),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Irfan Maulana',
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 18, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              'Cari Mentor Terbaikmu!',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 22,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                  icon: Icon(
+                                    Icons.search,
+                                    color: Colors.black,
+                                  ),
+                                  onPressed: () {}),
+                              Expanded(
+                                child: TextFormField(
+                                  controller: cariController,
+                                  decoration: InputDecoration.collapsed(
+                                    hintText: 'Cari mentor...',
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              height: 60,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                color: Colors.indigo,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Icon(
-                                Icons.menu,
-                                size: 35,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+                              IconButton(
+                                  icon: Icon(
+                                    Icons.clear_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  onPressed: () {}),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
-                )
-              ],
+                ],
+              ),
             ),
             SizedBox(
               height: 10,
@@ -257,8 +266,96 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 20.0,
+
+            Container(
+              margin: EdgeInsets.only(top: 15),
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Top Mentor',
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllCategory()));
+                    },
+                    child: Text(
+                      'See all >',
+                      style: GoogleFonts.poppins(fontSize: 16),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 190.0,
+              margin: EdgeInsets.only(left: 12),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: mentorList.length,
+                itemBuilder: (context, index) {
+                  final TopMentor topMentor = mentorList[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 13.0, horizontal: 10),
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      width: 110,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(Icons.favorite_border_outlined),
+                              Text('4.5')
+                            ],
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(topMentor.imageAssets),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text(
+                            topMentor.name,
+                            style: GoogleFonts.poppins(),
+                          ),
+                          Text(topMentor.kategori)
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
             Container(
               padding: EdgeInsets.only(left: 20, right: 20),
@@ -278,7 +375,7 @@ class _HomePageState extends State<HomePage> {
                               builder: (context) => AllCategory()));
                     },
                     child: Text(
-                      'Lihat Semua >',
+                      'See all >',
                       style: GoogleFonts.poppins(fontSize: 16),
                     ),
                   ),
@@ -289,154 +386,179 @@ class _HomePageState extends State<HomePage> {
               height: 10,
             ),
 
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 60,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DesainScreen()));
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20),
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        //color: Colors.indigo,
-                        border: Border.all(width: 3, color: Colors.indigo),
-                        // gradient: LinearGradient(
-                        //     colors: [Colors.indigo[600], Colors.indigo],
-                        //     begin: Alignment.centerLeft,
-                        //     end: Alignment.centerRight),
+            /// Kategori atau filter
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DesainScreen()));
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        width: 75,
+                        height: 75,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.design_services,
+                          color: Colors.red,
+                          size: 40,
+                        ),
                       ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.design_services,
-                              size: 35, color: Colors.indigo),
-                          Padding(padding: EdgeInsets.only(left: 8)),
-                          Text('Desain',
-                              style: GoogleFonts.poppins(
-                                  color: Colors.indigo, fontSize: 18)),
-                        ],
+                      SizedBox(
+                        height: 8,
                       ),
-                    ),
+                      Text(
+                        'Design',
+                        style: GoogleFonts.poppins(color: Colors.black),
+                      )
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProgrammingScreen()));
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(width: 3, color: Colors.indigo),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DesainScreen()));
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        width: 75,
+                        height: 75,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.computer_rounded,
+                          color: Colors.indigo,
+                          size: 40,
+                        ),
                       ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.computer_rounded,
-                            size: 35,
-                            color: Colors.indigo,
-                          ),
-                          Padding(padding: EdgeInsets.only(left: 8)),
-                          Text('Programming',
-                              style: GoogleFonts.poppins(
-                                  color: Colors.indigo, fontSize: 18)),
-                        ],
+                      SizedBox(
+                        height: 8,
                       ),
-                    ),
+                      Text(
+                        'Coding',
+                        style: GoogleFonts.poppins(color: Colors.black),
+                      )
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MarketingScreen()));
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(width: 3, color: Colors.indigo),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DesainScreen()));
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        width: 75,
+                        height: 75,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.shop_rounded,
+                          color: Colors.green,
+                          size: 40,
+                        ),
                       ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.money,
-                            size: 35,
-                            color: Colors.indigo,
-                          ),
-                          Padding(padding: EdgeInsets.only(left: 8)),
-                          Text('Marketing',
-                              style: GoogleFonts.poppins(
-                                  color: Colors.indigo, fontSize: 18)),
-                        ],
+                      SizedBox(
+                        height: 8,
                       ),
-                    ),
+                      Text(
+                        'Marketing',
+                        style: GoogleFonts.poppins(color: Colors.black),
+                      )
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EditorScreen()));
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(width: 3, color: Colors.indigo),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DesainScreen()));
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        width: 75,
+                        height: 75,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.movie_rounded,
+                          color: Colors.blue,
+                          size: 40,
+                        ),
                       ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.movie_creation_rounded,
-                            size: 35,
-                            color: Colors.indigo,
-                          ),
-                          Padding(padding: EdgeInsets.only(left: 8)),
-                          Text('Editor',
-                              style: GoogleFonts.poppins(
-                                  color: Colors.indigo, fontSize: 18)),
-                        ],
+                      SizedBox(
+                        height: 8,
                       ),
-                    ),
+                      Text(
+                        'Editor',
+                        style: GoogleFonts.poppins(color: Colors.black),
+                      )
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AllCategory()));
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      height: 60,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.indigo),
-                      child: Icon(Icons.arrow_forward_ios_rounded,
-                          color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(
               height: 20,

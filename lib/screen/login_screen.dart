@@ -19,23 +19,27 @@ class _LoginScreenState extends State<LoginScreen> {
       body: ListView(children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.all(20.0),
-          color: Colors.grey[200],
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 height: 200,
                 width: 200,
-                child: Image.asset('assets/mentor.png'),
+                child: Image.asset('assets/on1.png'),
               ),
               SizedBox(
                 height: 20,
               ),
               Text(
-                'Silahkan Login',
-                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                'Welcome back!',
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Text(
+                'You can find the best mentor according to your fashion',
+                style: GoogleFonts.poppins(fontSize: 16),
+                textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 20,
@@ -43,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 controller: usernameController,
                 decoration: InputDecoration(
-                  hintText: 'username',
+                  hintText: 'email',
                   border: OutlineInputBorder(
                     borderSide: BorderSide(),
                     borderRadius: BorderRadius.circular(20.0),
@@ -73,22 +77,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 child: Container(
                   padding: EdgeInsets.all(10.0),
+                  height: 65,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.indigo,
                       borderRadius: BorderRadius.circular(20.0)),
-                  child: Text(
-                    'Login',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
+                  child: Center(
+                    child: Text(
+                      'Login',
+                      style: GoogleFonts.poppins(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
