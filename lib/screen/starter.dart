@@ -10,35 +10,36 @@ class OnBoardingPage extends StatelessWidget {
         child: IntroductionScreen(
           pages: [
             PageViewModel(
-              title: 'A reader lives a thousand lives',
-              body: 'The man who never reads lives only one.',
+              title: 'Upgrade kemampuan sesuai fashion',
+              body: 'Terdapat banyak mentor handal yang siap membantu.',
               image: buildImage('assets/on1.png'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Featured Books',
-              body: 'Available right at your fingerprints',
+              title: 'Selangkah lebih maju',
+              body:
+                  'Dengan mentorku, anda akan mendapat bimbingan full oleh mentor profesional',
               image: buildImage('assets/on2.png'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Simple UI',
-              body: 'For enhanced reading experience',
+              title: 'Forum diskusi dan bimbingan',
+              body: 'Semua mentor siap membimbing kapanpun dan dimanapun',
               image: buildImage('assets/on3.png'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Today a reader, tomorrow a leader',
+              title: 'Dengan mentorku belajar akan lebih mudah',
               body: 'Start your journey',
               footer: ButtonWidget(
-                text: 'Start Reading',
+                text: 'Get Started',
                 onClicked: () => goToHome(context),
               ),
               image: buildImage('assets/on4.png'),
               decoration: getPageDecoration(),
             ),
           ],
-          done: Text('Read', style: TextStyle(fontWeight: FontWeight.w600)),
+          done: Text('Mulai', style: TextStyle(fontWeight: FontWeight.w600)),
           onDone: () => goToHome(context),
           showSkipButton: true,
           skip: Text('Skip'),

@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80),
+          preferredSize: Size.fromHeight(60),
           child: Stack(
             children: <Widget>[
               Container(
@@ -43,12 +43,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 padding: EdgeInsets.only(top: 28.0),
                 child: Center(
-                    child: Text('Mentor',
+                    child: Text('MentorKu',
                         style: GoogleFonts.poppins(
                             fontSize: 22.0, color: Colors.white))),
               ),
               Positioned(
-                  top: 40.0,
+                  top: 30.0,
                   left: 20.0,
                   child: Row(
                     children: [
@@ -66,18 +66,23 @@ class _HomePageState extends State<HomePage> {
                     ],
                   )),
               Positioned(
-                top: 50.0,
+                top: 40.0,
                 right: 20.0,
                 child: Row(
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NotifScreen()));
+                      },
                       child: Container(
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             shape: BoxShape.circle, color: Colors.white),
                         child: Icon(Icons.notifications_none_outlined,
-                            color: Colors.red, size: 30.0),
+                            color: Colors.red, size: 20.0),
                       ),
                     ),
                     Padding(padding: EdgeInsets.only(left: 10.0)),
@@ -98,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 130,
+                    height: 110,
                     decoration: BoxDecoration(
                       color: Colors.indigo,
                       borderRadius: BorderRadius.only(
@@ -121,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   'Hi,',
                                   style: GoogleFonts.poppins(
-                                      fontSize: 18, color: Colors.white),
+                                      fontSize: 14, color: Colors.white),
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -129,14 +134,14 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   'Irfan Maulana',
                                   style: GoogleFonts.poppins(
-                                      fontSize: 18, color: Colors.white),
+                                      fontSize: 14, color: Colors.white),
                                 ),
                               ],
                             ),
                             Text(
                               'Cari Mentor Terbaikmu!',
                               style: GoogleFonts.poppins(
-                                  fontSize: 22,
+                                  fontSize: 18,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -148,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                           width: MediaQuery.of(context).size.width,
                           margin: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
-                          height: 60,
+                          height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
@@ -193,9 +198,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               padding: EdgeInsets.all(10.0),
@@ -212,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'Mentormu Sekarang',
                       style: GoogleFonts.poppins(
-                          fontSize: 18, color: Colors.white),
+                          fontSize: 16, color: Colors.white),
                     ),
                   ),
                   SizedBox(
@@ -276,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Top Mentor',
                     style: GoogleFonts.poppins(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   InkWell(
                     onTap: () {
@@ -287,7 +290,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Text(
                       'See all >',
-                      style: GoogleFonts.poppins(fontSize: 16),
+                      style: GoogleFonts.poppins(fontSize: 14),
                     ),
                   ),
                 ],
@@ -306,7 +309,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 13.0, horizontal: 10),
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      //padding: EdgeInsets.all(2),
                       width: 110,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -325,13 +328,14 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(Icons.favorite_border_outlined),
-                              Text('4.5')
+                              FavoriteButton(),
+                              Text('4.5'),
+                              Text(''),
                             ],
                           ),
-                          SizedBox(
-                            height: 8,
-                          ),
+                          // SizedBox(
+                          //   height: 8,
+                          // ),
                           Container(
                             width: 60,
                             height: 60,
@@ -347,7 +351,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Text(
                             topMentor.name,
-                            style: GoogleFonts.poppins(),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.bold),
                           ),
                           Text(topMentor.kategori)
                         ],
@@ -357,6 +362,9 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            SizedBox(height: 8),
+            Divider(),
+            SizedBox(height: 8),
             Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(
@@ -365,7 +373,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Kategori',
                     style: GoogleFonts.poppins(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   InkWell(
                     onTap: () {
@@ -376,7 +384,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Text(
                       'See all >',
-                      style: GoogleFonts.poppins(fontSize: 16),
+                      style: GoogleFonts.poppins(fontSize: 14),
                     ),
                   ),
                 ],
@@ -437,7 +445,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DesainScreen()));
+                            builder: (context) => ProgrammingScreen()));
                   },
                   child: Column(
                     children: [
@@ -479,7 +487,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DesainScreen()));
+                            builder: (context) => MarketingScreen()));
                   },
                   child: Column(
                     children: [
@@ -521,7 +529,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DesainScreen()));
+                            builder: (context) => EditorScreen()));
                   },
                   child: Column(
                     children: [
@@ -560,9 +568,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 8),
+            Divider(),
+            SizedBox(height: 8),
 
             Container(
               padding: EdgeInsets.only(left: 20, right: 20),
@@ -570,28 +578,26 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Mentor Terbaik',
+                    'Rekomendasi',
                     style: GoogleFonts.poppins(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   InkWell(
                     onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) => AllCategory())),
                     child: Text(
-                      'Lihat Semua >',
-                      style: GoogleFonts.poppins(fontSize: 16),
+                      'See all >',
+                      style: GoogleFonts.poppins(fontSize: 14),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+
             Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.0),
                 width: MediaQuery.of(context).size.width,
-                height: 350,
+                height: 570,
                 child: TopMentorScreen()),
 
             SizedBox(
@@ -602,5 +608,26 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+}
+
+// favorite button
+class FavoriteButton extends StatefulWidget {
+  @override
+  _FavoriteButtonState createState() => _FavoriteButtonState();
+}
+
+bool isFavorite = false;
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+        onPressed: () {
+          setState(() {
+            isFavorite = !isFavorite;
+          });
+        });
   }
 }

@@ -10,7 +10,7 @@ class ProgrammingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.indigo,
           title: Text('Programming'),
         ),
         body: Padding(
@@ -62,7 +62,7 @@ class ProgrammingScreen extends StatelessWidget {
                     trailing: IconButton(
                       icon: Icon(
                         Icons.chat_rounded,
-                        color: Colors.red,
+                        color: Colors.indigo,
                       ),
                       onPressed: () {
                         Navigator.push(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_submission/screen/diskusi_screen.dart';
+import 'package:flutter_submission/screen/favorite_screen.dart';
 import 'package:flutter_submission/screen/home_screen.dart';
+import 'package:flutter_submission/screen/profile_screen.dart';
 
 class Navbar extends StatefulWidget {
   @override
@@ -10,7 +12,12 @@ class Navbar extends StatefulWidget {
 class _NavbarState extends State<Navbar> {
   int _selectedIndex = 0;
 
-  final _layoutPage = [HomePage(), Diskusi()];
+  final _layoutPage = [
+    HomePage(),
+    Diskusi(),
+    FavoriteScreen(),
+    ProfileScreen()
+  ];
 
   void _onTabItem(int index) {
     setState(() {
@@ -24,16 +31,24 @@ class _NavbarState extends State<Navbar> {
       body: _layoutPage.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.indigo,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: Colors.red,
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.red,
             icon: Icon(Icons.chat_rounded),
             label: 'Discussion',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_rounded),
+            label: 'Favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
+            label: 'Profile',
           )
         ],
         currentIndex: _selectedIndex,

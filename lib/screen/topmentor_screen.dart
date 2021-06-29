@@ -17,6 +17,7 @@ class TopMentorScreen extends StatelessWidget {
           return InkWell(
             onTap: () {},
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -30,39 +31,85 @@ class TopMentorScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              child: ListTile(
-                leading: Container(
-                  height: 65,
-                  width: 65,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage(
-                          topmentor.imageAssets,
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: Container(
+                      height: 65,
+                      width: 65,
+                      decoration: BoxDecoration(
+                        //shape: BoxShape.circle,
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            image: AssetImage(
+                              topmentor.imageAssets,
+                            ),
+                            fit: BoxFit.fill),
+                      ),
+                    ),
+                    title: Text(
+                      topmentor.name,
+                      style: GoogleFonts.poppins(fontSize: 18),
+                    ),
+                    subtitle: Text(topmentor.kategori),
+                    trailing: FavoriteButtonTop(),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Available',
+                            style: TextStyle(color: Colors.green),
+                          ),
+                          Text('09.00 WIB - Besok'),
+                        ],
+                      ),
+                      SizedBox(),
+                      Container(
+                        width: 100,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.green),
+                        child: Center(
+                          child: Text(
+                            'Request',
+                            style: GoogleFonts.poppins(color: Colors.white),
+                          ),
                         ),
-                        fit: BoxFit.fill),
-                  ),
-                ),
-                title: Text(
-                  topmentor.name,
-                  style: GoogleFonts.poppins(fontSize: 18),
-                ),
-                subtitle: Text(topmentor.kategori),
-                trailing: IconButton(
-                  icon: Icon(
-                    Icons.chat_rounded,
-                    color: Colors.indigo,
-                  ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ChatScreen()));
-                  },
-                ),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
           );
         },
       ),
     );
+  }
+}
+
+// favorite button
+class FavoriteButtonTop extends StatefulWidget {
+  @override
+  _FavoriteButtonTopState createState() => _FavoriteButtonTopState();
+}
+
+bool isFavorite = false;
+
+class _FavoriteButtonTopState extends State<FavoriteButtonTop> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+        onPressed: () {
+          setState(() {
+            isFavorite = !isFavorite;
+          });
+        });
   }
 }
